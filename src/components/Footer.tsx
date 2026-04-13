@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo.png"
+                src="/logo.svg"
                 alt="TA Capital Link"
                 className="h-12 w-auto rounded-sm"
               />
