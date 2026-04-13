@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 110" fill="none">
+  <defs>
+    <linearGradient id="gd" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DCBA54"/>
+      <stop offset="45%" stop-color="#C9A033"/>
+      <stop offset="100%" stop-color="#A87D1A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(168, -2) scale(0.50)">
+    <rect x="18" y="18" width="64" height="64" rx="3" transform="rotate(45, 50, 50)" stroke="url(#gd)" stroke-width="9" fill="none"/>
+    <rect x="52" y="18" width="64" height="64" rx="3" transform="rotate(45, 84, 50)" stroke="url(#gd)" stroke-width="9" fill="none"/>
+  </g>
+  <text x="6" y="92" font-family="Georgia, 'Playfair Display', serif" font-weight="700" font-size="44" fill="url(#gd)" letter-spacing="1">TA</text>
+  <text x="74" y="92" font-family="Georgia, 'Playfair Display', serif" font-weight="400" font-size="44" fill="#FFFFFF" letter-spacing="3.5">CAPITAL LINK</text>
+  <rect x="74" y="99" width="68" height="1.5" fill="#C9A033" rx="0.75"/>
+</svg>
