@@ -13,10 +13,10 @@ const downloads = [
   {
     title: "Rent Roll Template",
     description:
-      "Standardized rent roll template for organizing unit-level data including current rents, market rents, lease expirations, and vacancy. Essential for any multifamily due diligence process.",
+      "Standardized rent roll template for organizing unit-level data including current rents, market rents, lease expirations, and vacancy. Includes residential and commercial tabs with automatic occupancy tracking.",
     format: "XLSX",
     icon: FileSpreadsheet,
-    href: null,
+    href: "/TA-Capital-Link-Rent-Roll.xlsx",
   },
   {
     title: "Loan Comparison Worksheet",
@@ -25,6 +25,14 @@ const downloads = [
     format: "XLSX",
     icon: FileSpreadsheet,
     href: null,
+  },
+  {
+    title: "T12 Income & Expense Template",
+    description:
+      "Trailing 12-month income and expense statement template for multifamily properties. Tracks gross rental income, operating expenses, net cash flow, and capital expenditures month by month with automatic totals.",
+    format: "XLSX",
+    icon: FileSpreadsheet,
+    href: "/TA-Capital-Link-T12-Template.xlsx",
   },
   {
     title: "Due Diligence Checklist",
