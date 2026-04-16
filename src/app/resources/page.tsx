@@ -1,4 +1,4 @@
-import { Download, FileSpreadsheet, BookOpen, FileText, ArrowRight } from "lucide-react";
+import { Download, FileSpreadsheet, BookOpen, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const downloads = [
@@ -8,6 +8,7 @@ const downloads = [
       "A comprehensive Excel-based underwriting template used to analyze acquisition and refinance scenarios for multifamily properties. Includes cash flow projections, debt service coverage, and return metrics.",
     format: "XLSX",
     icon: FileSpreadsheet,
+    href: null,
   },
   {
     title: "Rent Roll Template",
@@ -15,6 +16,7 @@ const downloads = [
       "Standardized rent roll template for organizing unit-level data including current rents, market rents, lease expirations, and vacancy. Essential for any multifamily due diligence process.",
     format: "XLSX",
     icon: FileSpreadsheet,
+    href: null,
   },
   {
     title: "Loan Comparison Worksheet",
@@ -22,13 +24,15 @@ const downloads = [
       "Side-by-side loan term comparison tool for evaluating multiple financing options. Compare rates, fees, prepayment penalties, and total cost of capital across different lenders.",
     format: "XLSX",
     icon: FileSpreadsheet,
+    href: null,
   },
   {
     title: "Due Diligence Checklist",
     description:
-      "Complete checklist covering every phase of multifamily due diligence, from initial underwriting through closing. Organized by category with status tracking.",
-    format: "PDF",
-    icon: FileText,
+      "Institutional-grade borrower underwriting checklist covering loan application, property-level documents, borrower documents, and closing items. Organized by category with YES/NO/N/A status tracking and automatic Acquisition vs. Refinance logic.",
+    format: "XLSX",
+    icon: FileSpreadsheet,
+    href: "/TA-Capital-Link-Due-Diligence-Checklist.xlsx",
   },
 ];
 
@@ -103,10 +107,21 @@ export default function Resources() {
                     <p className="text-sm text-gray-400 leading-relaxed mb-4">
                       {item.description}
                     </p>
-                    <button className="inline-flex items-center text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors">
-                      <Download size={14} className="mr-1.5" />
-                      Download Free
-                    </button>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        download
+                        className="inline-flex items-center text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors"
+                      >
+                        <Download size={14} className="mr-1.5" />
+                        Download Free
+                      </a>
+                    ) : (
+                      <button className="inline-flex items-center text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors">
+                        <Download size={14} className="mr-1.5" />
+                        Download Free
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
