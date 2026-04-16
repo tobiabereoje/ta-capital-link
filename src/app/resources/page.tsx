@@ -24,7 +24,7 @@ const downloads = [
       "Side-by-side loan term comparison tool for evaluating multiple financing options. Compare rates, fees, prepayment penalties, and total cost of capital across different lenders.",
     format: "XLSX",
     icon: FileSpreadsheet,
-    href: null,
+    href: "/TA-Capital-Link-Loan-Comparison.xlsx",
   },
   {
     title: "T12 Income & Expense Template",
