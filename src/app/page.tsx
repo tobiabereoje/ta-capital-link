@@ -6,6 +6,9 @@ import {
   Phone,
   Download,
   ChevronRight,
+  BarChart3,
+  CheckCircle2,
+  Gauge,
 } from "lucide-react";
 
 export default function Home() {
@@ -155,34 +158,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== FREE RESOURCES ========== */}
+      {/* ========== UNDERWRITE YOUR DEAL ========== */}
       <section className="px-6 py-20 md:py-28">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-navy-900/40 border border-navy-800/60 rounded-lg p-10 md:p-14 flex flex-col md:flex-row items-start gap-8">
-            <div className="w-14 h-14 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
-              <Download size={24} className="text-gold-500" />
-            </div>
-            <div>
-              <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-3">
-                Free Resources
-              </h2>
-              <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-3">
-                Underwriting Models &amp; Educational Content
-              </h3>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                Access our library of free underwriting templates, financial
-                models, and educational guides designed to sharpen your
-                multifamily analysis skills and help you evaluate deals like an
-                institutional investor.
-              </p>
-              <Link
-                href="/resources"
-                className="inline-flex items-center text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors"
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="w-12 h-0.5 bg-gold-500 mx-auto mb-6" />
+            <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-4">
+              Free Underwriting Tool
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
+              Underwrite Your Deal in Minutes
+            </h3>
+            <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
+              Download our free Multifamily Underwriting Model and instantly see
+              whether your acquisition or refinance pencils out. Built with
+              institutional-grade formulas and a built-in Deal Quality
+              Assessment.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {[
+              {
+                icon: BarChart3,
+                title: "Plug In Your Numbers",
+                description:
+                  "Enter your purchase price, rents, expenses, and loan terms. Yellow-highlighted cells show exactly where to input your assumptions.",
+              },
+              {
+                icon: Gauge,
+                title: "Get a Deal Verdict",
+                description:
+                  "The model automatically scores your deal as STRONG, MARGINAL, or WEAK based on LTV, DSCR, Cash-on-Cash return, and leverage metrics.",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Know How to Improve",
+                description:
+                  "If your deal falls short, the model shows exactly what needs to change, whether it is the purchase price, interest rate, rents, or expenses.",
+              },
+            ].map((step) => (
+              <div
+                key={step.title}
+                className="bg-navy-900/40 border border-navy-800/60 rounded-lg p-8 text-center transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60 group"
               >
-                Browse Resources
-                <ChevronRight size={16} className="ml-1" />
-              </Link>
-            </div>
+                <div className="w-12 h-12 rounded bg-gold-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold-500/20 transition-colors">
+                  <step.icon size={22} className="text-gold-500" />
+                </div>
+                <h4 className="text-base font-semibold text-white mb-2">
+                  {step.title}
+                </h4>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/TA-Capital-Link-Underwriting-Model.xlsx"
+              download
+              className="inline-flex items-center justify-center px-7 py-3.5 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
+            >
+              <Download size={16} className="mr-2" />
+              Download Free Model
+            </a>
+            <Link
+              href="/resources"
+              className="inline-flex items-center justify-center px-7 py-3.5 border border-gold-500/40 text-gold-400 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
+            >
+              Browse All Resources
+              <ChevronRight size={16} className="ml-1.5" />
+            </Link>
           </div>
         </div>
       </section>
