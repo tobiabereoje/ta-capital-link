@@ -1,15 +1,29 @@
-import { Download, FileSpreadsheet, BookOpen, ArrowRight } from "lucide-react";
+import {
+  Download,
+  FileSpreadsheet,
+  BookOpen,
+  ArrowRight,
+  CheckCircle2,
+  BarChart3,
+} from "lucide-react";
 import Link from "next/link";
 
+const featuredDownload = {
+  title: "Multifamily Underwriting Model",
+  description:
+    "Our flagship analysis tool for multifamily investors. Built with institutional-grade formulas across four integrated tabs: Instructions, Dashboard, Rent Roll, and Historicals. Plug in your deal assumptions and instantly see whether your acquisition or refinance pencils out.",
+  format: "XLSX",
+  icon: FileSpreadsheet,
+  href: "/TA-Capital-Link-Underwriting-Model.xlsx",
+  highlights: [
+    "Built-in Deal Quality Assessment with STRONG / MARGINAL / WEAK verdict",
+    "Auto-calculated LTV, DSCR, Cash-on-Cash, and Equity Multiple",
+    "100-unit Rent Roll with market rent gap analysis",
+    "T12 Historicals and Year 1 Pro Forma with per-unit benchmarks",
+  ],
+};
+
 const downloads = [
-  {
-    title: "Multifamily Underwriting Model",
-    description:
-      "A comprehensive Excel-based underwriting template used to analyze acquisition and refinance scenarios for multifamily properties. Includes cash flow projections, debt service coverage, and return metrics.",
-    format: "XLSX",
-    icon: FileSpreadsheet,
-    href: null,
-  },
   {
     title: "Rent Roll Template",
     description:
@@ -88,10 +102,69 @@ export default function Resources() {
           </p>
         </div>
 
-        {/* Downloads Section */}
+        {/* Featured: Underwriting Model */}
+        <div className="mb-16">
+          <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-8">
+            Featured Tool
+          </h2>
+          <div className="bg-gradient-to-br from-navy-900/60 to-navy-900/30 border border-gold-500/20 rounded-lg p-8 md:p-10">
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded bg-gold-500/10 flex items-center justify-center">
+                    <BarChart3 size={22} className="text-gold-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-display font-bold text-white">
+                      {featuredDownload.title}
+                    </h3>
+                    <span className="text-[10px] font-semibold tracking-wider uppercase text-gold-500 bg-gold-500/10 px-2 py-0.5 rounded">
+                      {featuredDownload.format}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-400 leading-relaxed mb-6">
+                  {featuredDownload.description}
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {featuredDownload.highlights.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2.5 text-sm text-gray-300"
+                    >
+                      <CheckCircle2
+                        size={16}
+                        className="text-gold-500 shrink-0 mt-0.5"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={featuredDownload.href}
+                    download
+                    className="inline-flex items-center justify-center px-7 py-3.5 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
+                  >
+                    <Download size={16} className="mr-2" />
+                    Download Free Model
+                  </a>
+                  <Link
+                    href="/book-call"
+                    className="inline-flex items-center justify-center px-7 py-3.5 border border-gold-500/40 text-gold-400 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
+                  >
+                    Need Help Using It?
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Templates */}
         <div className="mb-20">
           <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-8">
-            Free Downloads
+            Additional Templates
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {downloads.map((item) => (
@@ -115,21 +188,14 @@ export default function Resources() {
                     <p className="text-sm text-gray-400 leading-relaxed mb-4">
                       {item.description}
                     </p>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        download
-                        className="inline-flex items-center text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors"
-                      >
-                        <Download size={14} className="mr-1.5" />
-                        Download Free
-                      </a>
-                    ) : (
-                      <button className="inline-flex items-center text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors">
-                        <Download size={14} className="mr-1.5" />
-                        Download Free
-                      </button>
-                    )}
+                    <a
+                      href={item.href}
+                      download
+                      className="inline-flex items-center text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors"
+                    >
+                      <Download size={14} className="mr-1.5" />
+                      Download Free
+                    </a>
                   </div>
                 </div>
               </div>
