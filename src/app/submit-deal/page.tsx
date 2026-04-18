@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Upload, CheckCircle } from "lucide-react";
+import { Send, Upload, CheckCircle, Loader2 } from "lucide-react";
 
 export default function SubmitDeal() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [files, setFiles] = useState<File[]>([]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,10 +15,38 @@ export default function SubmitDeal() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: Connect to backend / API route
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      fullName: formData.get("fullName") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      propertyLocation: formData.get("propertyLocation") as string,
+      numberOfUnits: formData.get("numberOfUnits") as string,
+      loanAmount: formData.get("loanAmount") as string,
+      businessPlan: formData.get("businessPlan") as string,
+    };
+
+    try {
+      const res = await fetch("/api/submit-deal", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Failed to submit");
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Something went wrong. Please try again or contact us directly."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -55,6 +85,12 @@ export default function SubmitDeal() {
           </p>
         </div>
 
+        {error && (
+          <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded text-red-400 text-sm">
+            {error}
+          </div>
+        )}
+
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Contact Info */}
@@ -65,6 +101,7 @@ export default function SubmitDeal() {
               </label>
               <input
                 type="text"
+                name="fullName"
                 required
                 placeholder="John Smith"
                 className="w-full px-4 py-3 bg-navy-900/60 border border-navy-700/50 rounded text-gray-100 placeholder-gray-500 transition-all duration-200 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30"
@@ -76,6 +113,7 @@ export default function SubmitDeal() {
               </label>
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="john@example.com"
                 className="w-full px-4 py-3 bg-navy-900/60 border border-navy-700/50 rounded text-gray-100 placeholder-gray-500 transition-all duration-200 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30"
@@ -89,6 +127,7 @@ export default function SubmitDeal() {
             </label>
             <input
               type="tel"
+              name="phone"
               required
               placeholder="(555) 123-4567"
               className="w-full px-4 py-3 bg-navy-900/60 border border-navy-700/50 rounded text-gray-100 placeholder-gray-500 transition-all duration-200 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30"
@@ -108,6 +147,7 @@ export default function SubmitDeal() {
             </label>
             <input
               type="text"
+              name="propertyLocation"
               required
               placeholder="City, State or Full Address"
               className="w-full px-4 py-3 bg-navy-900/60 border border-navy-700/50 rounded text-gray-100 placeholder-gray-500 transition-all duration-200 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30"
@@ -121,6 +161,7 @@ export default function SubmitDeal() {
               </label>
               <input
                 type="number"
+                name="numberOfUnits"
                 required
                 placeholder="e.g. 48"
                 className="w-full px-4 py-3 bg-navy-900/60 border border-navy-700/50 rounded text-gray-100 placeholder-gray-500 transition-all duration-200 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30"
@@ -132,6 +173,7 @@ export default function SubmitDeal() {
               </label>
               <input
                 type="text"
+                name="loanAmount"
                 required
                 placeholder="e.g. $3,500,000"
                 className="w-full px-4 py-3 bg-navy-900/60 border border-navy-700/50 rounded text-gray-100 placeholder-gray-500 transition-all duration-200 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30"
@@ -144,6 +186,7 @@ export default function SubmitDeal() {
               Business Plan *
             </label>
             <textarea
+              name="businessPlan"
               required
               rows={5}
               placeholder="Describe your acquisition or refinance strategy, intended hold period, renovation plans, and any other relevant details..."
@@ -189,18 +232,26 @@ export default function SubmitDeal() {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center px-7 py-4 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
+            disabled={loading}
+            className="w-full inline-flex items-center justify-center px-7 py-4 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Submit Deal
-            <Send size={16} className="ml-2" />
+            {loading ? (
+              <>
+                Submitting... <Loader2 size={16} className="ml-2 animate-spin" />
+              </>
+            ) : (
+              <>
+                Submit Deal <Send size={16} className="ml-2" />
+              </>
+            )}
           </button>
 
           <p className="text-xs text-gray-500 text-center">
-            Your information is kept strictly confidential and is used solely for
-            evaluating your financing request.
+            Your information is kept strictly confidential and is used solely
+            for evaluating your financing request.
           </p>
         </form>
       </div>
     </section>
   );
-}
+            }
