@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock, DollarSign, Video, CheckCircle } from "lucide-react";
+import { Clock, DollarSign, Video, CheckCircle, Banknote, AlertCircle } from "lucide-react";
 
 export default function BookCall() {
   return (
@@ -49,7 +49,7 @@ export default function BookCall() {
                     $100 per Session
                   </div>
                   <div className="text-xs text-gray-500">
-                    Payment processed securely via Stripe
+                    Payment required via Zelle before confirmation
                   </div>
                 </div>
               </div>
@@ -138,16 +138,48 @@ export default function BookCall() {
               </div>
             </div>
 
-            {/* Stripe Payment Note */}
-            <div className="mt-6 p-4 rounded bg-navy-900/60 border border-navy-800/40">
-              <p className="text-xs text-gray-500">
-                <span className="text-gold-500 font-medium">
-                  Payment Note:
-                </span>{" "}
-                The $100 consultation fee will be collected via Stripe during the
-                booking process. You will receive a confirmation email with your
-                meeting link and receipt.
+            {/* Zelle Payment Instructions */}
+            <div className="mt-6 p-5 rounded bg-navy-900/60 border border-gold-500/20">
+              <div className="flex items-center gap-2 mb-3">
+                <Banknote size={16} className="text-gold-500" />
+                <span className="text-sm font-semibold text-white">
+                  Payment Instructions
+                </span>
+              </div>
+              <p className="text-xs text-gray-400 leading-relaxed mb-4">
+                A $100 consultation fee is required to confirm your appointment.
+                After selecting a time, please send payment via Zelle using the
+                details below. Your booking will be confirmed once payment is
+                received.
               </p>
+              <div className="space-y-2.5 p-4 rounded bg-navy-950/60 border border-navy-800/40">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">Send To</span>
+                  <span className="text-sm font-medium text-white">
+                    Flatlands Consulting Group
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">Zelle Email</span>
+                  <span className="text-sm font-medium text-gold-400">
+                    omni23@me.com
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-500">Amount</span>
+                  <span className="text-sm font-medium text-white">
+                    $100.00
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 mt-3">
+                <AlertCircle size={12} className="text-gold-500 mt-0.5 shrink-0" />
+                <p className="text-[11px] text-gray-500 leading-relaxed">
+                  Please include your full name and appointment date in the Zelle
+                  memo. Your appointment will not be confirmed until payment is
+                  verified.
+                </p>
+              </div>
             </div>
           </div>
         </div>
