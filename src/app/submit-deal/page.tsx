@@ -9,9 +9,23 @@ export default function SubmitDeal() {
   const [error, setError] = useState("");
   const [files, setFiles] = useState<File[]>([]);
 
+  const MAX_FILES = 5;
+  const MAX_TOTAL_SIZE = 10 * 1024 * 1024; // 10 MB
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setFiles(Array.from(e.target.files));
+      const selected = Array.from(e.target.files);
+      if (selected.length > MAX_FILES) {
+        setError(`You can upload a maximum of ${MAX_FILES} files.`);
+        return;
+      }
+      const totalSize = selected.reduce((sum, f) => sum + f.size, 0);
+      if (totalSize > MAX_TOTAL_SIZE) {
+        setError("Total file size must be under 10 MB.");
+        return;
+      }
+      setError("");
+      setFiles(selected);
     }
   };
 
@@ -20,22 +34,23 @@ export default function SubmitDeal() {
     setLoading(true);
     setError("");
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      fullName: formData.get("fullName") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      propertyLocation: formData.get("propertyLocation") as string,
-      numberOfUnits: formData.get("numberOfUnits") as string,
-      loanAmount: formData.get("loanAmount") as string,
-      businessPlan: formData.get("businessPlan") as string,
-    };
+    const formDataObj = new FormData(e.currentTarget);
+
+    // Build a new FormData with text fields + selected files
+    const payload = new FormData();
+    payload.append("fullName", formDataObj.get("fullName") as string);
+    payload.append("email", formDataObj.get("email") as string);
+    payload.append("phone", formDataObj.get("phone") as string);
+    payload.append("propertyLocation", formDataObj.get("propertyLocation") as string);
+    payload.append("numberOfUnits", formDataObj.get("numberOfUnits") as string);
+    payload.append("loanAmount", formDataObj.get("loanAmount") as string);
+    payload.append("businessPlan", formDataObj.get("businessPlan") as string);
+    files.forEach((file) => payload.append("files", file));
 
     try {
       const res = await fetch("/api/submit-deal", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: payload,
       });
 
       if (!res.ok) throw new Error("Failed to submit");
@@ -201,7 +216,7 @@ export default function SubmitDeal() {
             </label>
             <p className="text-xs text-gray-500 mb-3">
               Rent Roll, T12, Offering Memorandum, or other supporting documents
-              (PDF, XLSX, DOCX)
+              (PDF, XLSX, DOCX). Up to 5 files, 10 MB total.
             </p>
             <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-navy-700/50 rounded-lg cursor-pointer hover:border-gold-500/30 transition-colors bg-navy-900/30">
               <Upload size={24} className="text-gray-500 mb-2" />
@@ -254,4 +269,4 @@ export default function SubmitDeal() {
       </div>
     </section>
   );
-            }
+}
