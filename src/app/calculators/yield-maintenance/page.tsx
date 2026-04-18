@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Link from "next/link";
 import {
   Calculator,
   DollarSign,
   Percent,
   Calendar,
   Info,
-  ArrowRight,
+  FileDown,
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
@@ -76,6 +75,7 @@ function calculateRemainingBalance(
       (Math.pow(1 + monthlyRate, totalMonths) - 1))
   );
 }
+
 export default function YieldMaintenanceCalculator() {
   const [loanAmount, setLoanAmount] = useState("10000000");
   const [displayLoanAmount, setDisplayLoanAmount] = useState("10,000,000");
@@ -177,6 +177,21 @@ export default function YieldMaintenanceCalculator() {
   ]);
 
   return (
+    <>
+      <style jsx global>{`
+        @media print {
+          header, footer, .print\\:hidden { display: none !important; }
+          body { background: white !important; color: black !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          section { padding: 0 !important; }
+          .lg\\:col-span-2 { display: none !important; }
+          .lg\\:col-span-3 { grid-column: 1 / -1 !important; }
+          .bg-navy-900\\/40, .bg-navy-900\\/60, .bg-navy-950\\/60 { background: white !important; border-color: #ddd !important; }
+          .text-white, .text-gray-100, .text-gray-300 { color: #111 !important; }
+          .text-gray-400, .text-gray-500 { color: #555 !important; }
+          .text-gold-400, .text-gold-500 { color: #b07d1e !important; }
+          .font-display { font-family: serif !important; }
+        }
+      `}</style>
     <section className="px-6 py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
         {/* Page Header */}
@@ -534,35 +549,22 @@ export default function YieldMaintenanceCalculator() {
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="bg-gradient-to-r from-gold-500/10 to-transparent border border-gold-500/20 rounded-lg p-6 md:p-8">
-              <h3 className="text-base font-semibold text-white mb-2">
-                Need a Precise Calculation?
-              </h3>
-              <p className="text-sm text-gray-400 leading-relaxed mb-5">
-                Yield maintenance calculations can vary by lender and loan
-                document. Book a consultation with our team for an exact
-                prepayment analysis based on your specific loan terms.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/book-call"
+            {/* Print / PDF Button */}
+            {results && (
+              <div className="flex justify-end print:hidden">
+                <button
+                  onClick={() => window.print()}
                   className="inline-flex items-center justify-center px-6 py-3 bg-gold-500 text-navy-950 font-semibold text-xs tracking-wider uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
                 >
-                  Book a Consultation
-                  <ArrowRight size={14} className="ml-2" />
-                </Link>
-                <Link
-                  href="/submit-deal"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-gold-500/40 text-gold-400 font-semibold text-xs tracking-wider uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
-                >
-                  Submit Your Deal
-                </Link>
+                  <FileDown size={14} className="mr-2" />
+                  Save as PDF
+                </button>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 }
