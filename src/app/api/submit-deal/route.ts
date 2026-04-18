@@ -21,7 +21,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: "TA Capital Link <deals@tacapitalink.com>",
-        to: ["omni22@aol.com"],
+        to: ["tobiabereoje@gmail.com"],
         subject: `New Deal Submission: ${propertyLocation} — ${fullName}`,
         html: `
 <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a2e;">
