@@ -64,24 +64,28 @@ const guides = [
     excerpt:
       "A step-by-step walkthrough of institutional underwriting methodology, covering revenue assumptions, expense analysis, capital reserves, and return calculations.",
     readTime: "12 min read",
+    href: "/guides/underwriting-multifamily",
   },
   {
     title: "Understanding Multifamily Loan Programs",
     excerpt:
       "An overview of the major multifamily financing programs including Fannie Mae, Freddie Mac, FHA, CMBS, bridge loans, and bank products. Learn which programs fit different deal profiles.",
     readTime: "10 min read",
+    href: "/guides/multifamily-loan-programs",
   },
   {
     title: "Cap Rates, NOI, and Valuation Fundamentals",
     excerpt:
       "Master the core metrics that drive multifamily valuations. This guide breaks down how institutional investors evaluate properties and make investment decisions.",
     readTime: "8 min read",
+    href: "/guides/cap-rates-noi-valuation",
   },
   {
     title: "Navigating Your First Value-Add Deal",
     excerpt:
       "Practical guidance for executing a value-add business plan on a multifamily acquisition, including renovation budgeting, rent growth projections, and exit strategies.",
     readTime: "15 min read",
+    href: "/guides/first-value-add-deal",
   },
 ];
 
@@ -210,9 +214,10 @@ export default function Resources() {
           </h2>
           <div className="space-y-4">
             {guides.map((guide) => (
-              <div
+              <Link
                 key={guide.title}
-                className="bg-navy-900/40 border border-navy-800/60 rounded-lg p-6 transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60 group cursor-pointer"
+                href={guide.href}
+                className="block bg-navy-900/40 border border-navy-800/60 rounded-lg p-6 transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60 group"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0 group-hover:bg-gold-500/20 transition-colors">
@@ -232,7 +237,7 @@ export default function Resources() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
