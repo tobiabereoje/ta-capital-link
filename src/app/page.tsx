@@ -49,12 +49,15 @@ export default function Home() {
               Submit Your Deal
               <ArrowRight size={16} className="ml-2" />
             </Link>
-            <Link
-              href="/book-call"
-              className="inline-flex items-center justify-center px-7 py-3.5 border border-gold-500/40 text-gold-400 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
-            >
-              Book a Consultation
-            </Link>
+            <div className="flex flex-col items-center">
+              <Link
+                href="/book-call"
+                className="inline-flex items-center justify-center px-7 py-3.5 border border-gold-500/40 text-gold-400 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
+              >
+                Book a Consultation
+              </Link>
+              <span className="text-xs text-gray-500 mt-2">30 min &middot; $100 via Zelle</span>
+            </div>
           </div>
         </div>
       </section>
@@ -148,7 +151,7 @@ export default function Home() {
                 icon: Phone,
                 title: "Consulting",
                 description:
-                  "Book a paid one-on-one session with an experienced multifamily advisor. Get personalized guidance on deal structure, financing strategy, market analysis, or portfolio optimization.",
+                  "Book a 30-minute one-on-one session ($100 via Zelle) with an experienced multifamily advisor. Get personalized guidance on deal structure, financing strategy, market analysis, or portfolio optimization.",
               },
             ].map((service) => (
               <div
