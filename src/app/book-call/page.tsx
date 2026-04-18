@@ -154,7 +154,7 @@ export default function BookCall() {
               </h2>
               <div
                 className="calendly-inline-widget"
-                data-url="https://calendly.com/tobiabereoje/30min?hide_gdpr_banner=1&background_color=0a0f1e&text_color=ffffff&primary_color=ffffff"
+                                data-url="https://calendly.com/tobiabereoje/30min?hide_gdpr_banner=1&background_color=f5f5f5&text_color=0a2540&primary_color=c9a227"
                 style={{ minWidth: "280px", height: "660px" }}
               />
             </div>
