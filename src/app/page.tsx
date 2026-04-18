@@ -17,6 +17,11 @@ export default function Home() {
       {/* ========== HERO ========== */}
       <section className="relative px-6 pt-20 pb-28 md:pt-32 md:pb-40 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy-900/30 via-transparent to-transparent pointer-events-none" />
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
+              alt="Modern multifamily buildings"
+              className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+            />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold-500/[0.03] rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center">
@@ -83,9 +88,16 @@ export default function Home() {
             About TA Capital Link
           </h2>
           <div className="grid md:grid-cols-2 gap-10 items-start">
+            <div>
             <h3 className="text-2xl md:text-3xl font-display font-bold text-white leading-snug">
               Institutional-Grade Advisory for Multifamily Investors
             </h3>
+            <img
+              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
+              alt="Luxury apartment building at dusk"
+              className="mt-8 rounded-lg w-full h-64 object-cover"
+            />
+          </div>
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
                 TA Capital Link brings deep experience in multifamily real
