@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Submit Deal", href: "/submit-deal" },
+  { name: "Get a Loan Quote", href: "/submit-deal" },
   { name: "Book Call", href: "/book-call" },
   { name: "Calculators", href: "/calculators/yield-maintenance" },
   { name: "Resources", href: "/resources" },
@@ -46,7 +46,7 @@ export default function Header() {
               href="/submit-deal"
               className="inline-flex items-center justify-center px-5 py-2.5 bg-gold-500 text-navy-950 font-semibold text-xs tracking-wider uppercase rounded transition-all duration-300 hover:bg-gold-400"
             >
-              Submit Your Deal
+              Get a Loan Quote
             </Link>
           </nav>
 
@@ -80,7 +80,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="block w-full text-center px-5 py-3 bg-gold-500 text-navy-950 font-semibold text-xs tracking-wider uppercase rounded"
               >
-                Submit Your Deal
+                Get a Loan Quote
               </Link>
             </div>
           </div>
