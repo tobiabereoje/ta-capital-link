@@ -138,25 +138,29 @@ export default function Home() {
               {
                 icon: Building2,
                 title: "Loan Advisory",
+                href: "/submit-deal",
                 description:
                   "We source and structure financing across a network of 50+ lending relationships, including agencies, banks, CMBS, bridge lenders, and debt funds. Our process ensures you get the best terms available for your deal.",
               },
               {
                 icon: FileSearch,
                 title: "Underwriting & Deal Review",
+                href: "/submit-deal",
                 description:
                   "Receive institutional-quality underwriting and due diligence analysis on any multifamily opportunity. We stress-test assumptions, model scenarios, and identify risks before you commit capital.",
               },
               {
                 icon: Phone,
                 title: "Consulting",
+                href: "/book-call",
                 description:
                   "Book a 30-minute one-on-one session ($100 via Zelle) with an experienced multifamily advisor. Get personalized guidance on deal structure, financing strategy, market analysis, or portfolio optimization.",
               },
             ].map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="bg-navy-900/40 border border-navy-800/60 rounded-lg p-8 transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60 group"
+                href={service.href}
+                className="bg-navy-900/40 border border-navy-800/60 rounded-lg p-8 transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60 group block"
               >
                 <div className="w-12 h-12 rounded bg-gold-500/10 flex items-center justify-center mb-6 group-hover:bg-gold-500/20 transition-colors">
                   <service.icon size={22} className="text-gold-500" />
@@ -167,7 +171,7 @@ export default function Home() {
                 <p className="text-sm text-gray-400 leading-relaxed">
                   {service.description}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
