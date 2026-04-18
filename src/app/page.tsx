@@ -3,12 +3,17 @@ import {
   ArrowRight,
   Building2,
   FileSearch,
-  Phone,
+  Lightbulb,
   Download,
   ChevronRight,
   BarChart3,
   CheckCircle2,
   Gauge,
+  ClipboardCheck,
+  Settings,
+  Handshake,
+  FileText,
+  Users,
 } from "lucide-react";
 
 export default function Home() {
@@ -17,11 +22,11 @@ export default function Home() {
       {/* ========== HERO ========== */}
       <section className="relative px-6 pt-20 pb-28 md:pt-32 md:pb-40 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy-900/30 via-transparent to-transparent pointer-events-none" />
-            <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
-              alt="Modern multifamily buildings"
-              className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
-            />
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
+          alt="Modern multifamily buildings"
+          className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+        />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold-500/[0.03] rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center">
@@ -30,28 +35,24 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight tracking-tight mb-6">
-            Institutional Multifamily
+            Get Your Multifamily Deal
             <br />
-            <span className="text-gold-400">Lending &amp; Advisory</span>
+            <span className="text-gold-400">Financed &mdash; Fast &amp; Structurally Optimized</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
-            We help multifamily investors secure optimal financing, underwrite
-            deals with institutional precision, and navigate complex capital
-            structures with confidence.
+            Institutional-level underwriting and capital sourcing for
+            multifamily investors and operators.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start justify-center gap-4">
-            <div className="flex flex-col items-center">
-              <Link
-                href="/submit-deal"
-                className="inline-flex items-center justify-center px-7 py-3.5 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
-              >
-                Submit Your Deal
-                <ArrowRight size={16} className="ml-2" />
-              </Link>
-              <span className="text-xs text-transparent mt-2 select-none" aria-hidden="true">&nbsp;</span>
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/submit-deal"
+              className="inline-flex items-center justify-center px-9 py-4 bg-gold-500 text-navy-950 font-bold text-base tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25"
+            >
+              Get a Loan Quote
+              <ArrowRight size={18} className="ml-2" />
+            </Link>
             <div className="flex flex-col items-center">
               <Link
                 href="/book-call"
@@ -65,60 +66,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== TRUST BAR ========== */}
-      <section className="px-6 py-12 border-y border-navy-800/30">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { value: "$250M+", label: "Deal Volume Advised" },
-            { value: "150+", label: "Deals Reviewed" },
-            { value: "50+", label: "Lender Relationships" },
-            { value: "100%", label: "Client Focus" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <div className="text-2xl md:text-3xl font-display font-bold text-gold-400 mb-1">
-                {stat.value}
-              </div>
-              <div className="text-xs text-gray-500 tracking-wider uppercase">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ========== ABOUT ========== */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-12 h-0.5 bg-gold-500 mb-6" />
-          <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-4">
-            About TA Capital Link
-          </h2>
-          <div className="grid md:grid-cols-2 gap-10 items-start">
-            <div>
-            <h3 className="text-2xl md:text-3xl font-display font-bold text-white leading-snug">
-              Institutional-Grade Advisory for Multifamily Investors
+      {/* ========== EXPERIENCE SNAPSHOT ========== */}
+      <section className="px-6 py-16 border-y border-navy-800/30">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="w-12 h-0.5 bg-gold-500 mx-auto mb-6" />
+            <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-4">
+              Experience Snapshot
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white">
+              Proven Multifamily Expertise
             </h3>
-            <img
-              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
-              alt="Luxury apartment building at dusk"
-              className="mt-8 rounded-lg w-full h-64 object-cover"
-            />
           </div>
-            <div className="space-y-4 text-gray-400 leading-relaxed">
-              <p>
-                TA Capital Link brings deep experience in multifamily real
-                estate underwriting, capital markets, and deal structuring. We
-                serve as a trusted extension of your team, providing the
-                analytical rigor and lender relationships typically reserved for
-                institutional players.
-              </p>
-              <p>
-                Whether you are acquiring your first 20-unit property or
-                refinancing a 200-unit portfolio, our advisory platform is
-                designed to help you secure the best terms, avoid costly
-                mistakes, and move with confidence.
-              </p>
-            </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                value: "$XXXM+",
+                label: "Multifamily Experience",
+              },
+              {
+                value: "Agency, Bridge & Value-Add",
+                label: "Financing Expertise",
+              },
+              {
+                value: "Institutional",
+                label: "Underwriting & Capital Markets Background",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="bg-navy-900/40 border border-navy-800/60 rounded-lg p-8 text-center transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60"
+              >
+                <div className="text-xl md:text-2xl font-display font-bold text-gold-400 mb-2">
+                  {item.value}
+                </div>
+                <div className="text-sm text-gray-400 tracking-wide">
+                  {item.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -129,7 +116,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="w-12 h-0.5 bg-gold-500 mx-auto mb-6" />
             <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-4">
-              Our Services
+              Services
             </h2>
             <h3 className="text-2xl md:text-3xl font-display font-bold text-white">
               How We Help You Win
@@ -140,24 +127,24 @@ export default function Home() {
             {[
               {
                 icon: Building2,
-                title: "Loan Advisory",
+                title: "Debt Structuring & Capital Sourcing",
                 href: "/submit-deal",
                 description:
-                  "We source and structure financing across a network of 50+ lending relationships, including agencies, banks, CMBS, bridge lenders, and debt funds. Our process ensures you get the best terms available for your deal.",
+                  "Structure and source optimal financing solutions across agency, bridge, and permanent lenders.",
               },
               {
                 icon: FileSearch,
                 title: "Underwriting & Deal Review",
                 href: "/submit-deal",
                 description:
-                  "Receive institutional-quality underwriting and due diligence analysis on any multifamily opportunity. We stress-test assumptions, model scenarios, and identify risks before you commit capital.",
+                  "Institutional-level analysis to evaluate acquisitions, refinances, and value-add opportunities.",
               },
               {
-                icon: Phone,
-                title: "Consulting",
+                icon: Lightbulb,
+                title: "Deal Strategy & Advisory",
                 href: "/book-call",
                 description:
-                  "Book a 30-minute one-on-one session ($100 via Zelle) with an experienced multifamily advisor. Get personalized guidance on deal structure, financing strategy, market analysis, or portfolio optimization.",
+                  "Strategic guidance on deal structure, financing approach, and execution.",
               },
             ].map((service) => (
               <Link
@@ -177,10 +164,140 @@ export default function Home() {
               </Link>
             ))}
           </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/submit-deal"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-950 font-bold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25"
+            >
+              Get a Loan Quote
+              <ArrowRight size={16} className="ml-2" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ========== UNDERWRITE YOUR DEAL ========== */}
+      {/* ========== WHO WE WORK WITH ========== */}
+      <section className="px-6 py-20 md:py-28">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="w-12 h-0.5 bg-gold-500 mx-auto mb-6" />
+            <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-4">
+              Who We Work With
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white">
+              Built for Multifamily Professionals
+            </h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {[
+              {
+                icon: Users,
+                label: "Multifamily investors",
+              },
+              {
+                icon: Handshake,
+                label: "Sponsors and syndicators",
+              },
+              {
+                icon: Building2,
+                label: "Property owners refinancing assets",
+              },
+              {
+                icon: FileText,
+                label: "Brokers with active deals",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-4 bg-navy-900/40 border border-navy-800/60 rounded-lg p-6 transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60"
+              >
+                <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
+                  <item.icon size={20} className="text-gold-500" />
+                </div>
+                <span className="text-base font-medium text-white">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== WHAT HAPPENS AFTER YOU SUBMIT ========== */}
+      <section className="px-6 py-20 md:py-28 bg-navy-900/20">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="w-12 h-0.5 bg-gold-500 mx-auto mb-6" />
+            <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold-500 mb-4">
+              Our Process
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white">
+              What Happens After You Submit a Deal
+            </h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                step: "1",
+                icon: ClipboardCheck,
+                title: "Deal Review",
+                description: "We review your deal within 24–48 hours.",
+              },
+              {
+                step: "2",
+                icon: Settings,
+                title: "Structure Financing",
+                description: "We structure optimal financing options.",
+              },
+              {
+                step: "3",
+                icon: Handshake,
+                title: "Lender Matching",
+                description: "We connect you with the right lenders.",
+              },
+              {
+                step: "4",
+                icon: FileText,
+                title: "Loan Quotes",
+                description: "You receive tailored loan quotes.",
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="bg-navy-900/40 border border-navy-800/60 rounded-lg p-8 text-center transition-all duration-300 hover:border-gold-500/20 hover:bg-navy-900/60 group relative"
+              >
+                <div className="absolute top-4 right-4 text-xs font-bold text-gold-500/30 tracking-wider">
+                  STEP {item.step}
+                </div>
+                <div className="w-12 h-12 rounded bg-gold-500/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold-500/20 transition-colors">
+                  <item.icon size={22} className="text-gold-500" />
+                </div>
+                <h4 className="text-base font-semibold text-white mb-2">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/submit-deal"
+              className="inline-flex items-center justify-center px-9 py-4 bg-gold-500 text-navy-950 font-bold text-base tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25"
+            >
+              Get a Loan Quote
+              <ArrowRight size={18} className="ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== FREE UNDERWRITING TOOL ========== */}
       <section className="px-6 py-20 md:py-28">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
@@ -257,7 +374,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== CTA ========== */}
+      {/* ========== FINAL CTA ========== */}
       <section className="px-6 py-20 md:py-28 bg-gradient-to-b from-navy-900/30 to-transparent">
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-12 h-0.5 bg-gold-500 mx-auto mb-6" />
@@ -267,14 +384,14 @@ export default function Home() {
           <p className="text-gray-400 leading-relaxed mb-8 max-w-xl mx-auto">
             Submit your deal to receive a custom loan quote tailored to your
             property and business plan. Our team will review your submission and
-            respond within 24 hours.
+            respond within 24&ndash;48 hours.
           </p>
           <Link
             href="/submit-deal"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
+            className="inline-flex items-center justify-center px-9 py-4 bg-gold-500 text-navy-950 font-bold text-base tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25"
           >
-            Submit Your Deal
-            <ArrowRight size={16} className="ml-2" />
+            Get a Loan Quote
+            <ArrowRight size={18} className="ml-2" />
           </Link>
         </div>
       </section>
