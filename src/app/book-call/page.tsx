@@ -60,10 +60,10 @@ export default function BookCall() {
                 </div>
                 <div>
                   <div className="text-sm font-medium text-white">
-                    Video or Phone Call
+                    Google Meet
                   </div>
                   <div className="text-xs text-gray-500">
-                    Zoom link provided upon booking
+                    Meeting link provided upon booking
                   </div>
                 </div>
               </div>
