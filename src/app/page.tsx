@@ -41,14 +41,17 @@ export default function Home() {
             structures with confidence.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/submit-deal"
-              className="inline-flex items-center justify-center px-7 py-3.5 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
-            >
-              Submit Your Deal
-              <ArrowRight size={16} className="ml-2" />
-            </Link>
+          <div className="flex flex-col sm:flex-row items-start justify-center gap-4">
+            <div className="flex flex-col items-center">
+              <Link
+                href="/submit-deal"
+                className="inline-flex items-center justify-center px-7 py-3.5 bg-gold-500 text-navy-950 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
+              >
+                Submit Your Deal
+                <ArrowRight size={16} className="ml-2" />
+              </Link>
+              <span className="text-xs text-transparent mt-2 select-none" aria-hidden="true">&nbsp;</span>
+            </div>
             <div className="flex flex-col items-center">
               <Link
                 href="/book-call"
