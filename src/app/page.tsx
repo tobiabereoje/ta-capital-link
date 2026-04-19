@@ -45,7 +45,7 @@ export default function Home() {
             multifamily investors and operators.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start justify-center gap-4">
             <Link
               href="/submit-deal"
               className="inline-flex items-center justify-center px-9 py-4 bg-gold-500 text-navy-950 font-bold text-base tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25"
@@ -244,7 +244,7 @@ export default function Home() {
                 step: "1",
                 icon: ClipboardCheck,
                 title: "Deal Review",
-                description: "We review your deal within 24–48 hours.",
+                description: "We review your deal within 24â48 hours.",
               },
               {
                 step: "2",
