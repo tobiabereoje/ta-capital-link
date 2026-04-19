@@ -49,8 +49,9 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start justify-center gap-4">
-            <Link
-              href="/submit-deal"
+            <div className="flex flex-col items-center">
+              <Link
+                href="/submit-deal"
               className="inline-flex items-center justify-center px-9 py-4 bg-gold-500 text-navy-950 font-bold text-base tracking-wide uppercase rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25"
             >
               Get a Loan Quote
@@ -414,4 +415,3 @@ export default function Home() {
     </>
   );
 }
-
