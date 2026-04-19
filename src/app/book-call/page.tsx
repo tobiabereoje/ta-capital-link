@@ -1,15 +1,27 @@
 "use client";
 
 import Script from "next/script";
-import { Clock, DollarSign, Video, CheckCircle, Banknote, AlertCircle } from "lucide-react";
+import { useState } from "react";
+import {
+  Clock,
+  DollarSign,
+  Video,
+  CheckCircle,
+  Banknote,
+  AlertCircle,
+} from "lucide-react";
 
 export default function BookCall() {
+  const [calLoaded, setCalLoaded] = useState(false);
+
   return (
     <>
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
+        onLoad={() => setCalLoaded(true)}
       />
+
       <section className="px-6 py-16 md:py-24">
         <div className="max-w-5xl mx-auto">
           {/* Page Header */}
@@ -20,8 +32,8 @@ export default function BookCall() {
             </h1>
             <p className="text-gray-400 leading-relaxed max-w-2xl">
               Schedule a one-on-one session with an experienced multifamily
-              advisor. Get personalized guidance on your deal, financing strategy,
-              or portfolio.
+              advisor. Get personalized guidance on your deal, financing
+              strategy, or portfolio.
             </p>
             <p className="text-sm text-gold-400 mt-3">
               30-minute session &middot; $100 via Zelle &middot; Google Meet
@@ -111,10 +123,10 @@ export default function BookCall() {
                   </span>
                 </div>
                 <p className="text-xs text-gray-400 leading-relaxed mb-4">
-                  A $100 consultation fee is required to confirm your appointment.
-                  After selecting a time, please send payment via Zelle using the
-                  details below. Your booking will be confirmed once payment is
-                  received.
+                  A $100 consultation fee is required to confirm your
+                  appointment. After selecting a time, please send payment via
+                  Zelle using the details below. Your booking will be confirmed
+                  once payment is received.
                 </p>
                 <div className="space-y-2.5 p-4 rounded bg-navy-950/60 border border-navy-800/40">
                   <div className="flex items-center justify-between">
@@ -137,11 +149,14 @@ export default function BookCall() {
                   </div>
                 </div>
                 <div className="flex items-start gap-2 mt-3">
-                  <AlertCircle size={12} className="text-gold-500 mt-0.5 shrink-0" />
+                  <AlertCircle
+                    size={12}
+                    className="text-gold-500 mt-0.5 shrink-0"
+                  />
                   <p className="text-[11px] text-gray-500 leading-relaxed">
-                    Please include your full name and appointment date in the Zelle
-                    memo. Your appointment will not be confirmed until payment is
-                    verified.
+                    Please include your full name and appointment date in the
+                    Zelle memo. Your appointment will not be confirmed until
+                    payment is verified.
                   </p>
                 </div>
               </div>
@@ -152,11 +167,24 @@ export default function BookCall() {
               <h2 className="text-lg font-semibold text-white mb-4">
                 Select a Time
               </h2>
-              <div
-                className="calendly-inline-widget"
-                                data-url="https://calendly.com/tobiabereoje/30min?hide_gdpr_banner=1&background_color=f5f5f5&text_color=0a2540&primary_color=c9a227"
-                style={{ minWidth: "280px", height: "660px" }}
-              />
+
+              <div className="relative" style={{ minHeight: "660px" }}>
+                {/* Loading skeleton shown while Calendly loads */}
+                {!calLoaded && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                    <div className="w-8 h-8 border-2 border-gold-500/30 border-t-gold-500 rounded-full animate-spin" />
+                    <p className="text-sm text-gray-500">
+                      Loading calendar...
+                    </p>
+                  </div>
+                )}
+
+                <div
+                  className="calendly-inline-widget"
+                  data-url="https://calendly.com/tobiabereoje/30min?hide_gdpr_banner=1&background_color=f5f5f5&text_color=0a2540&primary_color=c9a227"
+                  style={{ minWidth: "280px", height: "660px" }}
+                />
+              </div>
             </div>
           </div>
         </div>
