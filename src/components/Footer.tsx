@@ -29,7 +29,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { name: "Home", href: "/" },
-                { name: "Submit Deal", href: "/submit-deal" },
+                { name: "Get a Loan Quote", href: "/submit-deal" },
                 { name: "Book a Consultation", href: "/book-call" },
                 { name: "Resources", href: "/resources" },
                 { name: "Contact", href: "/contact" },
