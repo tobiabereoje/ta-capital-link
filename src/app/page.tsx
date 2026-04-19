@@ -82,7 +82,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                value: "$XXXM+",
+                value: "$500M+",
                 label: "Multifamily Experience",
               },
               {
