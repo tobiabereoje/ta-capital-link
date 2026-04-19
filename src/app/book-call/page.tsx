@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { useState } from "react";
 import {
   Clock,
@@ -12,16 +11,10 @@ import {
 } from "lucide-react";
 
 export default function BookCall() {
-  const [calLoaded, setCalLoaded] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   return (
     <>
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="afterInteractive"
-        onLoad={() => setCalLoaded(true)}
-      />
-
       <section className="px-6 py-16 md:py-24">
         <div className="max-w-5xl mx-auto">
           {/* Page Header */}
@@ -46,7 +39,6 @@ export default function BookCall() {
               <h2 className="text-lg font-semibold text-white mb-6">
                 Consultation Details
               </h2>
-
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
@@ -61,7 +53,6 @@ export default function BookCall() {
                     </div>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
                     <DollarSign size={18} className="text-gold-500" />
@@ -75,7 +66,6 @@ export default function BookCall() {
                     </div>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
                     <Video size={18} className="text-gold-500" />
@@ -162,15 +152,14 @@ export default function BookCall() {
               </div>
             </div>
 
-            {/* Calendly Inline Widget */}
+            {/* Calendly Direct Iframe — replaces widget.js for faster load */}
             <div className="md:col-span-3 bg-navy-900/40 border border-navy-800/60 rounded-lg p-4 md:p-6">
               <h2 className="text-lg font-semibold text-white mb-4">
                 Select a Time
               </h2>
-
               <div className="relative" style={{ minHeight: "660px" }}>
-                {/* Loading skeleton shown while Calendly loads */}
-                {!calLoaded && (
+                {/* Loading skeleton shown while iframe loads */}
+                {!iframeLoaded && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                     <div className="w-8 h-8 border-2 border-gold-500/30 border-t-gold-500 rounded-full animate-spin" />
                     <p className="text-sm text-gray-500">
@@ -178,11 +167,14 @@ export default function BookCall() {
                     </p>
                   </div>
                 )}
-
-                <div
-                  className="calendly-inline-widget"
-                  data-url="https://calendly.com/tobiabereoje/30min?hide_gdpr_banner=1&background_color=f5f5f5&text_color=0a2540&primary_color=c9a227"
-                  style={{ minWidth: "280px", height: "660px" }}
+                <iframe
+                  src="https://calendly.com/tobiabereoje/30min?hide_gdpr_banner=1&background_color=f5f5f5&text_color=0a2540&primary_color=c9a227"
+                  width="100%"
+                  height="660"
+                  frameBorder="0"
+                  title="Schedule a consultation"
+                  onLoad={() => setIframeLoaded(true)}
+                  style={{ borderRadius: "8px" }}
                 />
               </div>
             </div>
