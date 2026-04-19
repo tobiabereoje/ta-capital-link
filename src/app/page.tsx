@@ -56,7 +56,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
               <Link
                 href="/book-call"
-                className="inline-flex items-center justify-center px-7 py-3.5 border border-gold-500/40 text-gold-400 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
+                className="inline-flex items-center justify-center px-9 py-4 border border-gold-500/40 text-gold-400 font-bold text-base tracking-wide uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
               >
                 Book a Consultation
               </Link>
@@ -244,7 +244,7 @@ export default function Home() {
                 step: "1",
                 icon: ClipboardCheck,
                 title: "Deal Review",
-                description: "We review your deal within 24â48 hours.",
+                description: "We review your deal within 24–48 hours.",
               },
               {
                 step: "2",
