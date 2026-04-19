@@ -37,7 +37,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight tracking-tight mb-6">
             Get Your Multifamily Deal
             <br />
-            <span className="text-gold-400">Financed &mdash; Fast &amp; Structurally Optimized</span>
+            <span className="text-gold-400">Financed Fast &amp; Structurally Optimized</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
@@ -244,7 +244,7 @@ export default function Home() {
                 step: "1",
                 icon: ClipboardCheck,
                 title: "Deal Review",
-                description: "We review your deal within 24–48 hours.",
+                description: "We review your deal within 24â48 hours.",
               },
               {
                 step: "2",
