@@ -21,7 +21,7 @@ export default function BookCall() {
           <div className="mb-12">
             <div className="w-12 h-0.5 bg-gold-500 mb-6" />
             <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-              Book a Consultation
+              Book a Deal Assessment
             </h1>
             <p className="text-gray-400 leading-relaxed max-w-2xl">
               Schedule a one-on-one session with an experienced multifamily
@@ -29,7 +29,8 @@ export default function BookCall() {
               strategy, or portfolio.
             </p>
             <p className="text-sm text-gold-400 mt-3">
-              30-minute session &middot; $100 via Zelle &middot; Google Meet
+              30-minute session &middot; $100 Deal Assessment Fee &middot;
+              Google Meet
             </p>
           </div>
 
@@ -37,8 +38,9 @@ export default function BookCall() {
             {/* Details Card */}
             <div className="md:col-span-2 bg-navy-900/40 border border-navy-800/60 rounded-lg p-8">
               <h2 className="text-lg font-semibold text-white mb-6">
-                Consultation Details
+                Deal Assessment Details
               </h2>
+
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
@@ -53,19 +55,21 @@ export default function BookCall() {
                     </div>
                   </div>
                 </div>
+
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
                     <DollarSign size={18} className="text-gold-500" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-white">
-                      $100 per Session
+                      $100 Deal Assessment Fee
                     </div>
                     <div className="text-xs text-gray-500">
-                      Payment required via Zelle before confirmation
+                      Credited toward your advisory engagement
                     </div>
                   </div>
                 </div>
+
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-gold-500/10 flex items-center justify-center shrink-0">
                     <Video size={18} className="text-gold-500" />
@@ -113,10 +117,10 @@ export default function BookCall() {
                   </span>
                 </div>
                 <p className="text-xs text-gray-400 leading-relaxed mb-4">
-                  A $100 consultation fee is required to confirm your
-                  appointment. After selecting a time, please send payment via
-                  Zelle using the details below. Your booking will be confirmed
-                  once payment is received.
+                  A $100 deal assessment fee is required to confirm your
+                  appointment. This fee is credited toward your advisory
+                  engagement if we move forward together. After selecting a
+                  time, please send payment via Zelle using the details below.
                 </p>
                 <div className="space-y-2.5 p-4 rounded bg-navy-950/60 border border-navy-800/40">
                   <div className="flex items-center justify-between">
@@ -152,13 +156,12 @@ export default function BookCall() {
               </div>
             </div>
 
-            {/* Calendly Direct Iframe — replaces widget.js for faster load */}
+            {/* Calendly Direct Iframe */}
             <div className="md:col-span-3 bg-navy-900/40 border border-navy-800/60 rounded-lg p-4 md:p-6">
               <h2 className="text-lg font-semibold text-white mb-4">
                 Select a Time
               </h2>
               <div className="relative" style={{ minHeight: "660px" }}>
-                {/* Loading skeleton shown while iframe loads */}
                 {!iframeLoaded && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                     <div className="w-8 h-8 border-2 border-gold-500/30 border-t-gold-500 rounded-full animate-spin" />
@@ -172,7 +175,7 @@ export default function BookCall() {
                   width="100%"
                   height="660"
                   frameBorder="0"
-                  title="Schedule a consultation"
+                  title="Schedule a deal assessment"
                   onLoad={() => setIframeLoaded(true)}
                   style={{ borderRadius: "8px" }}
                 />
