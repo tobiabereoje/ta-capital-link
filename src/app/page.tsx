@@ -46,7 +46,7 @@ export default function Home() {
           </p>
           <p className="text-sm text-gray-400 italic mt-3">Trusted by multifamily investors and operators.</p>
           <p className="text-sm md:text-base text-gold-400 font-semibold tracking-wide uppercase mt-4 mb-2">
-            Focused on $2M â $50M+ multifamily transactions nationwide
+            Focused on $2M - $50M+ multifamily transactions nationwide
           </p>
 
           <div className="flex flex-col sm:flex-row items-start justify-center gap-4">
@@ -263,7 +263,7 @@ export default function Home() {
                 step: "1",
                 icon: ClipboardCheck,
                 title: "Deal Review",
-                description: "We review your deal within 24ÃÂ¢ÃÂÃÂ48 hours.",
+                description: "We review your deal within 24-48 hours.",
               },
               {
                 step: "2",
@@ -313,7 +313,7 @@ export default function Home() {
               <ArrowRight size={18} className="ml-2" />
             </Link>
             <p className="text-xs text-gray-500 mt-2">No obligation. 100% confidential.</p>
-            <p className="text-xs text-gold-400/70 mt-1">Initial deal review within 24–48 hours.</p>
+            <p className="text-xs text-gold-400/70 mt-1">Initial deal review within 24-48 hours.</p>
           </div>
         </div>
       </section>
