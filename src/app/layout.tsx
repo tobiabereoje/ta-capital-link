@@ -4,28 +4,60 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TA Capital Link | Institutional Multifamily Lending & Advisory",
+  metadataBase: new URL("https://tacapitalink.com"),
+  title: {
+    default: "TA Capital Link | Multifamily Lending Advisory",
+    template: "%s | TA Capital Link",
+  },
   description:
-    "TA Capital Link provides institutional-level underwriting, loan advisory, and consulting services to multifamily investors and property owners.",
+    "TA Capital Link provides institutional-level underwriting, loan advisory, and deal structuring for multifamily investors. Free DSCR, yield maintenance, and loan payment calculators.",
   keywords: [
-    "multifamily",
-    "real estate",
-    "lending",
-    "advisory",
-    "underwriting",
-    "capital markets",
-    "loan advisory",
+    "multifamily lending",
+    "multifamily loan broker",
+    "DSCR calculator",
+    "yield maintenance calculator",
+    "loan payment calculator",
+    "commercial real estate lending",
+    "agency lending",
+    "multifamily underwriting",
+    "apartment financing",
+    "CRE capital markets",
+    "multifamily advisory",
+    "bridge loan multifamily",
+    "Fannie Mae multifamily",
+    "Freddie Mac multifamily",
   ],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "TA Capital Link | Institutional Multifamily Lending & Advisory",
+    title: "TA Capital Link | Multifamily Lending Advisory",
     description:
-      "Helping multifamily investors secure financing and analyze deals with institutional-grade advisory.",
+      "Institutional-grade multifamily loan advisory. Free calculators for DSCR, yield maintenance, and loan payments.",
     url: "https://tacapitalink.com",
     siteName: "TA Capital Link",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TA Capital Link | Multifamily Lending Advisory",
+    description:
+      "Institutional-grade multifamily loan advisory. Free calculators for DSCR, yield maintenance, and loan payments.",
+  },
+  alternates: {
+    canonical: "https://tacapitalink.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -34,6 +66,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    name: "TA Capital Link",
+    url: "https://tacapitalink.com",
+    description:
+      "Institutional-level multifamily lending advisory, underwriting, and deal structuring services.",
+    serviceType: "Multifamily Lending Advisory",
+    areaServed: "US",
+    knowsAbout: [
+      "Multifamily Lending",
+      "Commercial Real Estate Finance",
+      "DSCR Analysis",
+      "Yield Maintenance",
+      "Agency Lending",
+      "Loan Underwriting",
+    ],
+  };
+
   return (
     <html lang="en">
       <head>
@@ -49,6 +100,10 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans">
