@@ -30,7 +30,7 @@ export default function Footer() {
               {[
                 { name: "Home", href: "/" },
                 { name: "Get a Loan Quote", href: "/submit-deal" },
-                { name: "Book a Deal Assessment", href: "/book-call" },
+                { name: "Book a Consultation", href: "/book-call" },
                 { name: "Resources", href: "/resources" },
                 { name: "Contact", href: "/contact" },
               ].map((link) => (
