@@ -7,6 +7,7 @@ import {
   ShieldCheck,
   CreditCard,
   ArrowRight,
+  CalendarCheck,
 } from "lucide-react";
 
 export default function BookCall() {
@@ -68,10 +69,10 @@ export default function BookCall() {
                 </div>
                 <div>
                   <div className="text-sm font-medium text-white">
-                    Video or Phone Call
+                    Video Call via Google Meet
                   </div>
                   <div className="text-xs text-gray-500">
-                    Zoom link provided after payment
+                    Meeting link sent with calendar invite
                   </div>
                 </div>
               </div>
@@ -107,8 +108,8 @@ export default function BookCall() {
               Pay & Schedule
             </h2>
             <p className="text-sm text-gray-500 mb-8">
-              Complete your payment to receive a booking confirmation and Zoom
-              link via email.
+              Complete your payment, then choose your preferred date and time
+              on the next page.
             </p>
 
             <div className="flex-1 flex flex-col items-center justify-center rounded bg-navy-900/60 border border-navy-800/50 p-8">
@@ -147,7 +148,7 @@ export default function BookCall() {
                   <span className="text-xs font-bold text-gold-500">2</span>
                 </div>
                 <p className="text-sm text-gray-400">
-                  Receive a confirmation email with your receipt
+                  After payment, choose your preferred date and time
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -155,7 +156,7 @@ export default function BookCall() {
                   <span className="text-xs font-bold text-gold-500">3</span>
                 </div>
                 <p className="text-sm text-gray-400">
-                  We will email your Zoom link within 24 hours
+                  Receive a calendar invite with your Google Meet link
                 </p>
               </div>
             </div>
