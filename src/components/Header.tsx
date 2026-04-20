@@ -9,7 +9,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Get a Loan Quote", href: "/submit-deal" },
   { name: "Book Call", href: "/book-call" },
-  { name: "Calculators", href: "/calculators/yield-maintenance" },
+  { name: "Calculators", href: "/calculators" },
   { name: "Resources", href: "/resources" },
   { name: "Contact", href: "/contact" },
 ];
