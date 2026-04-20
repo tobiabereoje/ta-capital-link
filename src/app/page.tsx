@@ -76,13 +76,13 @@ export default function Home() {
                 href="/book-call"
                 className="inline-flex items-center justify-center px-9 py-4 border border-gold-500/40 text-gold-400 font-bold text-base tracking-wide uppercase rounded transition-all duration-300 hover:border-gold-500 hover:text-gold-300 hover:bg-gold-500/5"
               >
-                Book a Deal Assessment
+                Book a Consultation
               </Link>
               <span className="text-xs text-gray-500 mt-2">
-                30 min &middot; $100 via Zelle
+                30 min &middot; $100 via Stripe
               </span>
               <span className="text-xs text-gold-400 mt-1 italic">
-                Fee credited toward advisory engagement
+                Pay securely, then pick your time
               </span>
             </div>
           </div>
